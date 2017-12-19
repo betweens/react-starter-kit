@@ -1,4 +1,4 @@
-## React Starter Kit — "[isomorphic](http://nerds.airbnb.com/isomorphic-javascript-future-web-apps/)" web app boilerplate &nbsp; <a href="https://github.com/kriasoft/react-starter-kit/stargazers"><img src="https://img.shields.io/github/stars/kriasoft/react-starter-kit.svg?style=social&label=Star&maxAge=3600" height="20"></a> <a href="https://twitter.com/ReactStarter"><img src="https://img.shields.io/twitter/follow/ReactStarter.svg?style=social&label=Follow&maxAge=3600" height="20"></a>
+## React初学者工具包 — "[isomorphic](http://nerds.airbnb.com/isomorphic-javascript-future-web-apps/)" web app boilerplate &nbsp; <a href="https://github.com/kriasoft/react-starter-kit/stargazers"><img src="https://img.shields.io/github/stars/kriasoft/react-starter-kit.svg?style=social&label=Star&maxAge=3600" height="20"></a> <a href="https://twitter.com/ReactStarter"><img src="https://img.shields.io/twitter/follow/ReactStarter.svg?style=social&label=Follow&maxAge=3600" height="20"></a>
 
 [React Starter Kit](https://www.reactstarterkit.com) is an opinionated boilerplate for web
 development built on top of [Node.js](https://nodejs.org/),
@@ -22,18 +22,18 @@ and newcomers to the industry.
 </p>
 
 
-### Getting Started
+### 入门
 
-  * Follow the [getting started guide](./docs/getting-started.md) to download and run the project
+  * 按照[getting started guide](./docs/getting-started.md)下载并运行该项目
     ([Node.js](https://nodejs.org/) >= 6.5)
-  * Check the [code recipes](./docs/recipes) used in this boilerplate, or share yours
+  * 检查这个模版中使用的[code recipes](./docs/recipes)，或分享你的
 
 
-### Customization
+### 定制
 
-The `master` branch of React Starter Kit doesn't include a Flux implementation or any other
-advanced integrations. Nevertheless, we have some integrations available to you in *feature*
-branches that you can use either as a reference or merge into your project:
+React入门套件的`master`分支不包含Flux实现或任何其他
+先进的集成。 不过，我们有一些集成可用于*功能*
+您可以将其用作参考或合并到您的项目中的分支：
 
   * [feature/redux](https://github.com/kriasoft/react-starter-kit/tree/feature/redux) ([PR](https://github.com/kriasoft/react-starter-kit/pull/1084))
     — isomorphic Redux by [Pavel Lang](https://github.com/langpavel)
@@ -45,12 +45,11 @@ branches that you can use either as a reference or merge into your project:
     — isomorphic Redux and React Intl by [Pavel Lang](https://github.com/langpavel)
     (see [how to integrate React Intl](./docs/recipes/how-to-integrate-react-intl.md)) (based on `feature/apollo`)
 
-You can see status of most reasonable merge combination as [PRs labeled as `TRACKING`](https://github.com/kriasoft/react-starter-kit/labels/TRACKING)
+你可以看到最合理的合并组合的状态为[PRs labeled as `TRACKING`](https://github.com/kriasoft/react-starter-kit/labels/TRACKING)
 
-If you think that any of these features should be on `master`, or vice versa, some features should
-removed from the `master` branch, please [let us know](https://gitter.im/kriasoft/react-starter-kit).
-We love your feedback!
-
+如果您认为这些功能中的任何一个应该放在master上，反之亦然，一些功能应该是这样
+从`master`分支中删除,[please let us know](https://gitter.im/kriasoft/react-starter-kit).
+欢迎你们提出反馈！
 
 ### Comparison
 
@@ -75,21 +74,21 @@ We love your feedback!
   <tr>
   <tr>
     <th align="right">App type</th>
-    <td align="center"><a href="http://nerds.airbnb.com/isomorphic-javascript-future-web-apps/">Isomorphic</a> (universal)</td>
-    <td align="center"><a href="https://en.wikipedia.org/wiki/Single-page_application">Single-page application</a></td>
-    <td align="center"><a href="https://en.wikipedia.org/wiki/Single-page_application">Single-page application</a></td>
+    <td align="center"><a href="http://nerds.airbnb.com/isomorphic-javascript-future-web-apps/">同构</a> (universal)</td>
+    <td align="center"><a href="https://en.wikipedia.org/wiki/Single-page_application">单页面应用程序</a></td>
+    <td align="center"><a href="https://en.wikipedia.org/wiki/Single-page_application">单页面应用程序</a></td>
   </tr>
   <tr>
-    <th colspan="4">Frontend</th>
+    <th colspan="4">前端后端</th>
   <tr>
   <tr>
-    <th align="right">Language</th>
+    <th align="right">语言</th>
     <td align="center">JavaScript (ES2015+, JSX)</td>
     <td align="center">JavaScript (ES2015+, JSX)</td>
     <td align="center">JavaScript (ES2015+, JSX)</td>
   </tr>
   <tr>
-    <th align="right">Libraries</th>
+    <th align="right">库</th>
     <td align="center">
       <a href="https://github.com/facebook/react">React</a>,
       <a href="https://github.com/ReactJSTraining/history">History</a>,
@@ -107,22 +106,22 @@ We love your feedback!
     </td>
   </tr>
   <tr>
-    <th align="right">Routes</th>
+    <th align="right">路由</th>
     <td align="center">Imperative (functional)</td>
     <td align="center">Declarative</td>
     <td align="center">Declarative, cross-stack</td>
   </tr>
   <tr>
-    <th colspan="4">Backend</th>
+    <th colspan="4">后端</th>
   <tr>
   <tr>
-    <th align="right">Language</th>
+    <th align="right">语言</th>
     <td align="center">JavaScript (ES2015+, JSX)</td>
     <td align="center">n/a</td>
     <td align="center">C#, F#</td>
   </tr>
   <tr>
-    <th align="right">Libraries</th>
+    <th align="right">库</th>
     <td align="center">
       <a href="https://nodejs.org">Node.js</a>,
       <a href="http://expressjs.com/">Express</a>,
@@ -150,9 +149,9 @@ We love your feedback!
 </table>
 
 
-### Backers
+### 支持者
 
-♥ React Starter Kit? Help us keep it alive by donating funds to cover project
+♥ React Starter Kit? 帮助我们通过捐款来支持项目
 expenses via [OpenCollective](https://opencollective.com/react-starter-kit) or
 [Bountysource](https://salt.bountysource.com/teams/react-starter-kit)!
 
@@ -179,37 +178,37 @@ expenses via [OpenCollective](https://opencollective.com/react-starter-kit) or
 </a>
 
 
-### How to Contribute
+### 如何贡献
 
-Anyone and everyone is welcome to [contribute](CONTRIBUTING.md) to this project. The best way to
-start is by checking our [open issues](https://github.com/kriasoft/react-starter-kit/issues),
-[submit a new issues](https://github.com/kriasoft/react-starter-kit/issues/new?labels=bug) or
+欢迎任何人和每个人[contribute](CONTRIBUTING.md)到这个项目.最好的方法
+开始是通过查看我们的[open issues](https://github.com/kriasoft/react-starter-kit/issues),
+[submit a new issues](https://github.com/kriasoft/react-starter-kit/issues/new?labels=bug)或
 [feature request](https://github.com/kriasoft/react-starter-kit/issues/new?labels=enhancement),
-participate in discussions, upvote or downvote the issues you like or dislike, send [pull
+参与讨论,upvote或downvote你喜欢或不喜欢的问题,发送[pull
 requests](CONTRIBUTING.md#pull-requests).
 
 
-### Learn More
+### 了解更多
 
-  * [Getting Started with React.js](http://facebook.github.io/react/)
-  * [Getting Started with GraphQL and Relay](https://quip.com/oLxzA1gTsJsE)
-  * [React.js Questions on StackOverflow](http://stackoverflow.com/questions/tagged/reactjs)
-  * [React.js Discussion Board](https://discuss.reactjs.org/)
-  * [Flux Architecture for Building User Interfaces](http://facebook.github.io/flux/)
-  * [Enzyme — JavaScript Testing utilities for React](http://airbnb.io/enzyme/)
-  * [Flow — A static type checker for JavaScript](http://flowtype.org/)
-  * [The Future of React](https://github.com/reactjs/react-future)
-  * [Learn ES6](https://babeljs.io/docs/learn-es6/), [ES6 Features](https://github.com/lukehoban/es6features#readme)
-
-
-### Related Projects
-
-  * [GraphQL Starter Kit](https://github.com/kriasoft/graphql-starter-kit) — Boilerplate for building data APIs with Node.js, JavaScript (via Babel) and GraphQL
-  * [Membership Database](https://github.com/membership/membership.db) — SQL schema boilerplate for user accounts, profiles, roles, and auth claims
-  * [Babel Starter Kit](https://github.com/kriasoft/babel-starter-kit) — Boilerplate for authoring JavaScript/React.js libraries
+  * [开始使用React.js](http://facebook.github.io/react/)
+  * [开始使用GraphQL和Relay](https://quip.com/oLxzA1gTsJsE)
+  * [有关StackOverflow的React.js问题](http://stackoverflow.com/questions/tagged/reactjs)
+  * [React.js讨论](https://discuss.reactjs.org/)
+  * [用于构建用户界面的流量架构](http://facebook.github.io/flux/)
+  * [Enzyme - React的JavaScript测试工具](http://airbnb.io/enzyme/)
+  * [Flow — JavaScript的静态类型检查器](http://flowtype.org/)
+  * [React的未来](https://github.com/reactjs/react-future)
+  * [了解学习 ES6](https://babeljs.io/docs/learn-es6/), [ES6 特点](https://github.com/lukehoban/es6features#readme)
 
 
-### Support
+### 相关项目
+
+  * [GraphQL入门套件](https://github.com/kriasoft/graphql-starter-kit) — Boilerplate for building data APIs with Node.js, JavaScript (via Babel) and GraphQL
+  * [会员资料库](https://github.com/membership/membership.db) — SQL schema boilerplate for user accounts, profiles, roles, and auth claims
+  * [Babel入门套件](https://github.com/kriasoft/babel-starter-kit) — Boilerplate for authoring JavaScript/React.js libraries
+
+
+### 支持
 
   * [#react-starter-kit](http://stackoverflow.com/questions/tagged/react-starter-kit) on Stack Overflow — Questions and answers
   * [#react-starter-kit](https://gitter.im/kriasoft/react-starter-kit) on Gitter — Watch announcements, share ideas and feedback
@@ -218,7 +217,7 @@ requests](CONTRIBUTING.md#pull-requests).
   * [@koistya](https://twitter.com/koistya) on [Codementor](https://www.codementor.io/koistya), or [Skype](http://hatscripts.com/addskype?koistya) — Private consulting
 
 
-### License
+### 许可证
 
 Copyright © 2014-present Kriasoft, LLC. This source code is licensed under the MIT
 license found in the [LICENSE.txt](https://github.com/kriasoft/react-starter-kit/blob/master/LICENSE.txt)
