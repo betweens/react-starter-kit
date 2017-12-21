@@ -4,7 +4,7 @@
 > [Airbnb React/JSX 指南](https://github.com/airbnb/javascript/tree/master/react).
 > 随意修改它，以适应您的项目的需求.
 
-### 目录
+### table-of-contents
 
 * [为每个UI组件分开文件夹](#separate-folder-per-ui-component)
 * [更喜欢使用功能组件](#prefer-using-functional-components)
