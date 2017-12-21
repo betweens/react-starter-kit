@@ -1,15 +1,15 @@
 ## React Style Guide
 
-> This style guide comes as an addition to
-> [Airbnb React/JSX Guide](https://github.com/airbnb/javascript/tree/master/react).
-> Feel free to modify it to suit your project's needs.
+> 这个风格指南是作为一个补充
+> [Airbnb React/JSX 指南](https://github.com/airbnb/javascript/tree/master/react).
+> 随意修改它，以适应您的项目的需求.
 
-### Table of Contents
+### 目录
 
-* [Separate folder per UI component](#separate-folder-per-ui-component)
-* [Prefer using functional components](#prefer-using-functional-components)
-* [Use CSS Modules](#use-css-modules)
-* [Use higher-order components](#use-higher-order-components)
+* [为每个UI组件分开文件夹](#separate-folder-per-ui-component)
+* [更喜欢使用功能组件](#prefer-using-functional-components)
+* [使用CSS模块](#use-css-modules)
+* [使用更高阶的组件](#use-higher-order-components)
 
 ### Separate folder per UI component
 

@@ -1,26 +1,26 @@
-## Testing your application
+## 测试你的应用程序
 
-### Used libraries
+### 使用库
 
-RSK comes with the following libraries for testing purposes:
+RSK附带以下库用于测试目的:
 
-* [Mocha](https://mochajs.org/) - Node.js and browser test runner
-* [Chai](http://chaijs.com/) - Assertion library
-* [Enzyme](https://github.com/airbnb/enzyme) - Testing utilities for React
+* [Mocha](https://mochajs.org/) - Node.js和浏览器测试运行器
+* [Chai](http://chaijs.com/) - 断言库
+* [Enzyme](https://github.com/airbnb/enzyme) - 测试React的实用程序
 
-You may also want to take a look at the following related packages:
+你也可以看看下面的相关软件包:
 
 * [jsdom](https://github.com/tmpvar/jsdom)
 * [react-addons-test-utils](https://www.npmjs.com/package/react-addons-test-utils)
 
 ### Running tests
 
-To test your application simply run the
+要测试你的应用程序，只需运行
 [`yarn test`](https://github.com/kriasoft/react-starter-kit/blob/b22b1810461cec9c53eedffe632a3ce70a6b29a3/package.json#L154)
-command which will:
+命令将会:
 
-* recursively find all files ending with `.test.js` in your `src/` directory
-* mocha execute found files
+* 递归地在你的`src/`目录下找到所有以`.test.js`结尾的文件
+* mocha 执行找到的文件
 
 ```bash
 yarn test
@@ -28,16 +28,12 @@ yarn test
 
 ### Conventions
 
-* test filenames MUST end with `test.js` or `yarn test` will not be able to
-  detect them
-* test filenames SHOULD be named after the related component (e.g. create
-  `Login.test.js` for `Login.js` component)
+* 测试文件名必须以`test.js`或`yarn test`结尾，否则不能检测它们
+* 测试文件名应该以相关组件命名（例如,创建`Login.js组件的`Login.test.js`）
 
 ### Basic example
 
-To help you on your way RSK comes with the following
-[basic test case](https://github.com/kriasoft/react-starter-kit/blob/master/src/components/Layout/Layout.test.js)
-you can use as a starting point:
+为了帮助您，RSK提供以下[basic test case](https://github.com/kriasoft/react-starter-kit/blob/master/src/components/Layout/Layout.test.js)，您可以将其作为起点:
 
 ```js
 import React from 'react';
@@ -63,10 +59,10 @@ describe('Layout', () => {
 
 ### React-intl exampleß
 
-React-intl users MUST render/wrap components inside an IntlProvider like the
-example below:
+React-intl用户必须 渲染/打包 IntlProvider中的组件
+下面的例子:
 
-The example below example is a drop-in test for the RSK `Header` component:
+下面的例子是RSK`Header`组件的一个嵌入式测试:
 
 ```js
 import React from 'react';
@@ -88,15 +84,15 @@ describe('A test suite for <Header />', () => {
 });
 ```
 
-Please note that NOT using IntlProvider will produce the following error:
+请注意，不使用IntlProvider将产生以下错误:
 
-> Invariant Violation: [React Intl] Could not find required `intl` object.
-> <IntlProvider> needs to exist in the component ancestry.
+> 不变的违规: [React Intl]无法找到所需的`intl`对象.
+> 需要在组件父辈中存在<IntlProvider>.
 
 ### Linting
 
-In order to check if your JavaScript and CSS code follows the suggested style
-guidelines run:
+为了检查您的JavaScript和CSS代码是否遵循建议的风格
+准则运行:
 
 ```bash
 yarn run lint

@@ -1,23 +1,23 @@
-## Documentation
+## 文档
 
-### General
+### 概括
 
-* [Getting Started](./getting-started.md)
-* [React Style Guide](./react-style-guide.md)
-* [How to configure text editors and IDEs](./how-to-configure-text-editors.md)
-* [Data fetching with WHATWG Fetch](./data-fetching.md)
-* [Testing your application](./testing-your-application.md)
+* [入门](./getting-started.md)
+* [React 代码风格指南](./react-style-guide.md)
+* [如何配置文本编辑器和IDE](./how-to-configure-text-editors.md)
+* [数据获取 WHATWG Fetch](./data-fetching.md)
+* [测试你的应用程序](./testing-your-application.md)
 
-### Questions
+### 问题
 
-* [Which module bundler should I use?](https://github.com/kriasoft/react-starter-kit/issues/3)
-* [Which Flux implementation should I use?](https://github.com/kriasoft/react-starter-kit/issues/22)
+* [我应该使用哪个模块打包器?](https://github.com/kriasoft/react-starter-kit/issues/3)
+* [我应该使用哪种Flux实现?](https://github.com/kriasoft/react-starter-kit/issues/22)
 
 ### Recipes
 
-* [How to Implement Routing and Navigation](./recipes/how-to-implement-routing.md)
-* [How to Integrate Redux](./recipes/how-to-integrate-redux.md)
-* [How to Integrate React Intl](./recipes/how-to-integrate-react-intl.md)
-* [How to Integrate Disqus](./recipes/how-to-integrate-disqus.md)
-* [How to Use Sass/SCSS](./recipes/how-to-use-sass.md)
-* [How to Configure Facebook Login](./recipes/how-to-configure-facebook-login.md)
+* [如何实现路由和导航](./recipes/how-to-implement-routing.md)
+* [如何集成Redux](./recipes/how-to-integrate-redux.md)
+* [如何整合React Intl](./recipes/how-to-integrate-react-intl.md)
+* [如何整合Disqus](./recipes/how-to-integrate-disqus.md)
+* [如何使用 Sass/SCSS](./recipes/how-to-use-sass.md)
+* [如何配置Facebook登录](./recipes/how-to-configure-facebook-login.md)
