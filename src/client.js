@@ -48,14 +48,14 @@ if (window.history && 'scrollRestoration' in window.history) {
   window.history.scrollRestoration = 'manual';
 }
 
-// Re-render the app when window.location changes
+// window.location更改时重新呈现应用程序
 async function onLocationChange(location, action) {
-  // Remember the latest scroll position for the previous location
+  // 记住上一个位置的最新滚动位置
   scrollPositionsHistory[currentLocation.key] = {
     scrollX: window.pageXOffset,
     scrollY: window.pageYOffset,
   };
-  // Delete stored scroll position for next page if any
+  // 除下一页存储的滚动位置（如果有的话）
   if (action === 'PUSH') {
     delete scrollPositionsHistory[location.key];
   }
@@ -63,16 +63,16 @@ async function onLocationChange(location, action) {
 
   const isInitialRender = !action;
   try {
-    // Traverses the list of routes in the order they are defined until
-    // it finds the first route that matches provided URL path string
-    // and whose action method returns anything other than `undefined`.
+    // 按照它们定义的顺序遍历路由列表
+    // 找到与提供的URL路径字符串匹配的第一个路由
+    // 其操作方法返回非undefined的任何东西。
     const route = await router.resolve({
       ...context,
       pathname: location.pathname,
       query: queryString.parse(location.search),
     });
 
-    // Prevent multiple page renders during the routing process
+    // 在路由过程中防止多页面呈现
     if (currentLocation.key !== location.key) {
       return;
     }
@@ -111,6 +111,8 @@ async function onLocationChange(location, action) {
           scrollY = pos.scrollY;
         } else {
           const targetHash = location.hash.substr(1);
+          // console.log(location.hash.substr(1));
+          // console.log(targetHash);
           if (targetHash) {
             const target = document.getElementById(targetHash);
             if (target) {

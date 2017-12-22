@@ -1,10 +1,8 @@
-## How to Use Sass/SCSS
+## 如何使用Sass / SCSS
 
-> **Note**: Using plain CSS via [PostCSS](http://postcss.org/) is recommended approach because it
-reduces the size of the tech stack used in the project, enforces you to learn vanilla CSS syntax
-with modern CSS Level 3+ features that allow you doing everything you would normally do with
-Sass/SCSS. Also compilation of plain `.css` files should work faster with `postcss` pre-processor
-than `node-sass`.
+> **Note**: 推荐使用通过[PostCSS](http://postcss.org/)的普通CSS，因为它减少了项目中使用的技术栈的大小,
+强制你学习使用现代CSS 3级以上的功能,从而使您可以完成 Sass/SCSS 通常所做的一切.
+另外编译普通的`.css`文件应该比`node-sass`更快地使用`postcss`预处理器。
 
 ### Step 1
 
@@ -20,7 +18,7 @@ $ yarn add sass-loader --dev
 
 ### Step 2
 
-Update [`webpack.config.js`](../../tools/webpack.config.js) file to use `sass-loader` for `.scss` files:
+更新[`webpack.config.js`](../../tools/webpack.config.js) 文件, 在`.scss`文件中使用`sass-loader`:
 
 ```js
 const config = {
@@ -63,8 +61,7 @@ const config = {
 
 ### Step 3
 
-Add one more configuration (`tools/postcss.sass.js`) for [PostCSS](https://github.com/postcss/postcss) to
-enable [Autoprefixer](https://github.com/postcss/autoprefixer) for your `.scss` files:
+为[PostCSS](https://github.com/postcss/postcss)添加一个配置(`tools/postcss.sass.js`)来启用 [Autoprefixer](https://github.com/postcss/autoprefixer) 为你的`.scss`文件:
 
 ```js
 module.exports = () => ({
@@ -74,4 +71,4 @@ module.exports = () => ({
 });
 ```
 
-For more information visit https://github.com/jtangelder/sass-loader and https://github.com/sass/node-sass
+欲了解更多信息请访问 https://github.com/jtangelder/sass-loader and https://github.com/sass/node-sass

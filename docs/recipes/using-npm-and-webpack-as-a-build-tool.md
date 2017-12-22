@@ -1,20 +1,21 @@
-## Using Yarn and Webpack as a Build Tool
+## 使用Yarn和Webpack作为构建工具
 
-The [Yarn](https://yarnpkg.com/) command line utility that comes with Node.js
-allows you to run arbitrary scripts and [Node.js modules](https://www.npmjs.com/)
-without them being globally installed. This is very convenient, because other
-developers in your team don't need to worry about having some set of tools
-installed globally before they can execute build automation scripts in your
-project.
+Node.js附带的[Yarn]（https://yarnpkg.com/）命令行实用程序
+允许您运行任意脚本和[Node.js modules](https://www.npmjs.com/)
+没有他们全局安装. 这很方便, 因为其他你的团队中的开发人员不需要担心有一些工具
+在他们可以在你的脚本中执行编译自动化脚本之前全局安项目.
 
 For example, if you need to lint your JavaScript code with [ESLint](http://eslint.org/)
 and [JSCS](http://jscs.info/), you just install them as project's dependencies:
+
+例如，如果您需要使用[ESLint](http://eslint.org/)来 lint 您的JavaScript代码,
+和[JSCS](http://jscs.info/), 你只要将它们安装为项目的依赖关系即可:
 
 ```shell
 $ yarn add eslint jscs --dev
 ```
 
-Add a new command line to `package.json/scripts`:
+添加一个新的命令行 `package.json/scripts`:
 
 ```json
 {
@@ -28,29 +29,23 @@ Add a new command line to `package.json/scripts`:
 }
 ```
 
-And execute it by running:
+并通过运行来执行它:
 
 ```shell
 $ yarn run lint        # yarn run <script-name>
 ```
 
-Which will be the same as running `./node_modules/bin/eslint src && ./node_modules/bin/jscs src`,
-except that the former has a shorter syntax and works the the same way on all
-platforms (Mac OS X, Windows, Linux).
+这与运行`./node_modules/bin/eslint src && ./node_modules/bin/jscs src`相同,
+除了前者具有更短的语法并且在所有平台（Mac OS X, Windows, Linux）上以相同的方式工作.
 
-The same way you can run [Webpack](http://webpack.github.io/) module bundler
-to compile the source code of your app into a distributable format. Since
-Webpack has numerous [configuration options](http://webpack.github.io/docs/configuration),
-it's a good idea to have all of them in a separate configuration file, as
-opposed to feeding them to Webpack's CLI as command line arguments. As a rule
-of thumb, you want to keep the "scripts" section in your `package.json` file
-short enough and easy to read.
+你可以用同样的方式运行[Webpack]（http://webpack.github.io/）模块打包器
+将您的应用程序的源代码编译成可分成类的格式.由于Webpack有许多[configuration options](http://webpack.github.io/docs/configuration),
+将所有这些文件放在单独的配置文件中是个好主意,而不是将它们作为命令行参数提供给Webpack的CLI.
+作为一个经验法则，你想保持你的`package.json`文件中的"scripts"部分足够短，易于阅读
 
-For example, you may have `src/client.js` and `src/server.js` files that used
-as entry points to the client-side and server-side code of your app. The
-following Webpack configuration file (`webpack.config.js`) can be used
-to bundle them into client-side and server-side application bundles -
-`build/public/client.js` and `build/server.js` respectively:
+例如，你可能有`src/client.js`和`src/server.js`文件作为你的应用的客户端和服务器端代码的入口点.
+可以使用下面的Webpack配置文件 (`webpack.config.js`) 
+将它们分别捆绑到客户端和服务器端的应用程序包 - `build/public/client.js`和 `build/server.js`:
 
 ```js
 module.exports = [{

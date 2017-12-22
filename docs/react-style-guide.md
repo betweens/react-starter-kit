@@ -9,20 +9,20 @@
 * [为每个UI组件分开文件夹](#separate-folder-per-ui-component)
 * [更喜欢使用功能组件](#prefer-using-functional-components)
 * [使用CSS模块](#use-css-modules)
-* [使用更高阶的组件](#use-higher-order-components)
+* [使用高阶的组件](#use-higher-order-components)
 
-### Separate folder per UI component
+### 为每个UI组件分开文件夹
 
-* Place each major UI component along with its resources in a separate folder\
-  This will make it easier to find related resources for any particular UI element
-  (CSS, images, unit tests, localization files etc.). Removing such components during
-  refactorings should also be easy.
-* Avoid having CSS, images and other resource files shared between multiple
-  components.\
-  This will make your code more maintainable, easy to refactor.
-* Add `package.json` file into each component's folder.\
-  This will allow to easily reference such components from other places in your code.\
-  Use `import Nav from '../Navigation'` instead of `import Nav from
+* 将每个主要UI组件及其资源放在单独的文件夹\
+  这将更容易为任何特定的UI元素查找相关资源
+  (CSS, images, unit tests, localization files etc.) 在此期间移除这些组件
+   重构也应该很容易.
+* 避免在多个之间共享CSS，图像和其他资源文件
+  组件.\
+  这将使您的代码更易于维护，便于重构.
+* 将`package.json`文件添加到每个组件的文件夹中.
+ 这将允许从代码中的其他地方轻松地引用这些组件.
+  使用 `import Nav from '../Navigation'` 代替 `import Nav from
   '../Navigation/Navigation.js'`
 
 ```
@@ -42,13 +42,13 @@
 }
 ```
 
-For more information google for
-[component-based UI development](https://google.com/search?q=component-based+ui+development).
+欲了解更多google信息
+[基于组件的UI开发](https://google.com/search?q=component-based+ui+development).
 
-### Prefer using functional components
+### 更喜欢使用功能组件
 
-* Prefer using stateless functional components whenever possible.\
-  Components that don't use state are better to be written as simple pure functions.
+* 尽可能使用无状态功能组件.
+  不使用状态的组件最好写成简单的纯函数.
 
 ```jsx
 // Bad
@@ -68,19 +68,18 @@ function Navigation({ items }) {
 Navigation.propTypes = { items: PropTypes.array.isRequired };
 ```
 
-### Use CSS Modules
+### 使用CSS模块
 
-* Use CSS Modules\
-  This will allow using short CSS class names and at the same time avoid conflicts.
-* Keep CSS simple and declarative. Avoid loops, mixins etc.
-* Feel free to use variables in CSS via
+* 使用CSS模块\
+  这将允许使用短的CSS类名称，同时避免冲突.
+* 保持CSS简单和声明. 避免循环,混合等.
+* 随意在CSS中使用变量
   [precss](https://github.com/jonathantneal/precss) plugin for
   [PostCSS](https://github.com/postcss/postcss)
-* Prefer CSS class selectors instead of element and `id` selectors (see
+* 首选CSS类选择器而不是元素和`id`选择器 (see
   [BEM](https://bem.info/))
-* Avoid nested CSS selectors (see [BEM](https://bem.info/))
-* When in doubt, use `.root { }` class name for the root elements of your
-  components
+* 避免嵌套的CSS选择器 (see [BEM](https://bem.info/))
+* 如果有疑问,请使用`.root {}`类名作为你的根元素组件
 
 ```scss
 // Navigation.scss
@@ -155,10 +154,10 @@ Navigation.propTypes = { className: PropTypes.string };
 export default withStyles(Navigation, s);
 ```
 
-### Use higher-order components
+### 使用高阶的组件
 
-* Use higher-order components (HOC) to extend existing React components.\
-  Here is an example:
+* 使用高阶组件（HOC）来扩展现有的React组件
+  这是一个例子:
 
 ```js
 // withViewport.js

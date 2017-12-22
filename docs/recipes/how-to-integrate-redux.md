@@ -1,40 +1,35 @@
-## How to Integrate [Redux](http://redux.js.org/index.html)
+## 如何整合 [Redux](http://redux.js.org/index.html)
 
-Merge `feature/redux` branch with Git. If you are interested in `feature/react-intl`, merge that
-branch instead as it also includes Redux.
+用Git合并 `feature/redux` 分支.  如果你对 `feature/react-intl` 感兴趣，可以合并该分支，因为它也包含Redux。
 
 **If you don't know Redux well, you should [read about it first](http://redux.js.org/docs/basics/index.html).**
 
 
-### Creating Actions
+### 创建操作
 
- 1. Go to `src/constants/index.js` and define action name there.
+ 1. 转到 `src/constants/index.js` 并在那里定义动作名称.
 
- 2. Go to `src/actions/` and create file with appropriate name. You can copy
-    `src/actions/runtime.js` as a template.
+ 2. 转到 `src/actions/` 并用适当的名字创建文件。 你可以复制 `src/actions/runtime.js` 作为模板.
 
- 3. If you need async actions, use [`redux-thunk`](https://github.com/gaearon/redux-thunk#readme).
-    For inspiration on how to create async actions you can look at
-    [`setLocale`](https://github.com/kriasoft/react-starter-kit/blob/feature/react-intl/src/actions/intl.js)
-    action from `feature/react-intl`.
-    See [Async Flow](http://redux.js.org/docs/advanced/AsyncFlow.html) for more information on this
-    topic.
+ 3. 如果你需要异步操作, 使用 [`redux-thunk`](https://github.com/gaearon/redux-thunk#readme).
+    有关如何创建异步操作的启示，您可以查看 `feature/react-intl` 中的[`redux-thunk`](https://github.com/gaearon/redux-thunk#readme)动作.
+    见 [Async Flow](http://redux.js.org/docs/advanced/AsyncFlow.html) 更多信息与话题.
 
 
 ### Creating Reducer (aka Store)
 
- 1. Go to [`src/reducers/`](https://github.com/kriasoft/react-starter-kit/tree/feature/redux/src/reducers) and create new file there.
+ 1. 去 [`src/reducers/`](https://github.com/kriasoft/react-starter-kit/tree/feature/redux/src/reducers) 并在那里创建新的文件.
 
-    You can copy [`src/reducers/runtime.js`](https://github.com/kriasoft/react-starter-kit/tree/feature/redux/src/reducers/runtime.js) as a template.
+    你可以复制 [`src/reducers/runtime.js`](https://github.com/kriasoft/react-starter-kit/tree/feature/redux/src/reducers/runtime.js) 做为模版.
 
-    - Do not forget to always return `state`.
-    - Never mutate provided `state`.
-      If you mutate state, rendering of connected component will not be triggered because of `===` equality.
-      Always return new value if you perform state update.
-      You can use this construct: `{ ...state, updatedKey: action.payload.value, }`
-    - Keep in mind that store state *must* be repeatable by replaying actions on it.
-      For example, when you store timestamp, pass it into *action payload*.
-      If you call REST API, do it in action. *Never do this in reducer!*
+    - 不要忘记总是需要 return `state`.
+    - 从来没有发生变化提供 `state`.
+      如果你改变状态，连接组件的渲染将不会被触发，因为等于`===` .
+      如果执行状态更新，则始终返回新值.
+      你可以使用这个构造: `{ ...state, updatedKey: action.payload.value, }`
+    - 请记住，存储状态*必须*是可重复的通过它重放动作.
+      例如，当你存储时间戳时，将它传递给* action payload *.
+      如果您调用REST API, 请执行此操作. *不要在reduc111er中做这个!*
 
  2. Edit [`src/reducers/index.js`](https://github.com/kriasoft/react-starter-kit/tree/feature/redux/src/reducers/index.js), import your reducer and add it to root reducer created by
  [`combineReducers`](http://redux.js.org/docs/api/combineReducers.html)

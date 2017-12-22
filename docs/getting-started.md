@@ -1,6 +1,6 @@
-## Getting Started
+## 入门
 
-### Requirements
+### 要求
 
 * Mac OS X, Windows, or Linux
 * [Yarn](https://yarnpkg.com/) package + [Node.js](https://nodejs.org/) v6.5 or
@@ -8,77 +8,76 @@
 * Text editor or IDE pre-configured with React/JSX/Flow/ESlint
   ([learn more](./how-to-configure-text-editors.md))
 
-### Directory Layout
+### 目录结构
 
-Before you start, take a moment to see how the project structure looks like:
+在你开始之前，花点时间看看项目结构是怎样的:
 
 ```
 .
-├── /build/                     # The folder for compiled output
-├── /docs/                      # Documentation files for the project
-├── /node_modules/              # 3rd-party libraries and utilities
-├── /public/                    # Static files which are copied into the /build/public folder
-├── /src/                       # The source code of the application
-│   ├── /components/            # React components
-│   ├── /data/                  # GraphQL server schema and data models
-│   ├── /routes/                # Page/screen components along with the routing information
-│   ├── /client.js              # Client-side startup script
-│   ├── /config.js              # Global application settings
-│   ├── /server.js              # Server-side startup script
-│   └── ...                     # Other core framework modules
-├── /test/                      # Unit and end-to-end tests
-├── /tools/                     # Build automation scripts and utilities
-│   ├── /lib/                   # Library for utility snippets
-│   ├── /build.js               # Builds the project from source to output (build) folder
-│   ├── /bundle.js              # Bundles the web resources into package(s) through Webpack
-│   ├── /clean.js               # Cleans up the output (build) folder
-│   ├── /copy.js                # Copies static files to output (build) folder
-│   ├── /deploy.js              # Deploys your web application
-│   ├── /postcss.config.js      # Configuration for transforming styles with PostCSS plugins
-│   ├── /run.js                 # Helper function for running build automation tasks
-│   ├── /runServer.js           # Launches (or restarts) Node.js server
-│   ├── /start.js               # Launches the development web server with "live reload"
-│   └── /webpack.config.js      # Configurations for client-side and server-side bundles
-├── Dockerfile                  # Commands for building a Docker image for production
-├── package.json                # The list of 3rd party libraries and utilities
-└── yarn.lock                   # Fixed versions of all the dependencies
+├── /build/                     # 编译输出的文件夹
+├── /docs/                      # 项目的文档文件
+├── /node_modules/              # 第三方库和实用程序
+├── /public/                    # 静态文件被复制到/build/public文件夹中  
+├── /src/                       # 应用程序的源代码
+│   ├── /components/            # React组件
+│   ├── /data/                  # GraphQL服务器模式和数据模型
+│   ├── /routes/                # Page/screen 组件以及路由信息
+│   ├── /client.js              # 客户端启动脚本
+│   ├── /config.js              # 全局应用程序设置
+│   ├── /server.js              # 服务器端启动脚本
+│   └── ...                     # 其他核心框架模块
+├── /test/                      # 单元和端到端测试
+├── /tools/                     # 构建自动化脚本和实用程序
+│   ├── /lib/                   # 实用程序片段的库
+│   ├── /build.js               # 构建从源到输出（build)文件夹的项目
+│   ├── /bundle.js              # 通过Webpack将网络资源捆绑到软件包中
+│   ├── /clean.js               # 清理输出(build)文件夹
+│   ├── /copy.js                # 将静态文件复制到输出(build)文件夹
+│   ├── /deploy.js              # 部署您的Web应用程序
+│   ├── /postcss.config.js      # 使用PostCSS插件转换样式的配置
+│   ├── /run.js                 # 用于运行构建自动化任务的辅助函数
+│   ├── /runServer.js           # 启动或重新启动 Node.js服务器
+│   ├── /start.js               # 用“live reload”启动开发Web服务器
+│   └── /webpack.config.js      # 客户端和服务器端软件包的配置
+├── Dockerfile                  # 用于构建用于生产的Docker映像的命令
+├── package.json                # 第三方库和实用程序的列表
+└── yarn.lock                   # 修复了所有依赖关系的版本
 ```
 
-**Note**: The current version of RSK does not contain a Flux implementation. It
-can be easily integrated with any Flux library of your choice. The most commonly
-used Flux libraries are [Flux](http://facebook.github.io/flux/),
-[Redux](http://redux.js.org/) and [Relay](http://facebook.github.io/relay/).
+**Note**: 当前版本的RSK不包含Flux实现. 它可以很容易地与您选择的任何Flux库集成. 最常见的
+使用Flux库是[Flux](http://facebook.github.io/flux/),
+[Redux](http://redux.js.org/)和[Relay](http://facebook.github.io/relay/)）
 
-### Quick Start
+### 快速开始
 
-#### 1. Get the latest version
+#### 1. 获取最新版本
 
-You can start by cloning the latest version of React Starter Kit (RSK) on your
-local machine by running:
+您可以先在您的系统上克隆最新版本的React Starter Kit（RSK）
+本地机器运行:
 
 ```shell
 $ git clone -o react-starter-kit -b master --single-branch \
       https://github.com/kriasoft/react-starter-kit.git MyApp
 $ cd MyApp
 ```
-
-Alternatively, you can start a new project based on RSK right from
-[WebStorm IDE](https://www.jetbrains.com/help/webstorm/generating-a-project-from-a-framework-template.html#d88767e51),
-or by using
-[Yeoman generator](https://www.npmjs.com/package/generator-react-fullstack).
+或者，您可以从
+[WebStorm IDE](https://www.jetbrains.com/help/webstorm/generating-a-project-from-a-framework-template.html#d88767e51)
+或者使用
+[Yeoman generator](https://www.npmjs.com/package/generator-react-fullstack)
+开始基于RSK的新项目.
 
 #### 2. Run `yarn install`
 
-This will install both run-time project dependencies and developer tools listed
-in [package.json](../package.json) file.
+这将安装运行时项目依赖项和列出的开发人员工具
+在[package.json](../package.json)文件中.
 
 #### 3. Run `yarn start`
 
-This command will build the app from the source files (`/src`) into the output
-`/build` folder. As soon as the initial build completes, it will start the
-Node.js server (`node build/server.js`) and
-[Browsersync](https://browsersync.io/) with
-[HMR](https://webpack.github.io/docs/hot-module-replacement) on top of it.
+该命令将从源文件(`/src`)构建应用程序到输出中
+`/build`文件夹。 一旦最初的构建完成，它将启动
+Node.js服务器(`node build/server.js`) 和
+[Browsersync](https://browsersync.io/)与
+[HMR](https://webpack.github.io/docs/hot-module-replacement)在上面.
 
 > [http://localhost:3000/](http://localhost:3000/) — Node.js server
 > (`build/server.js`) with Browsersync and HMR enabled\
@@ -87,87 +86,85 @@ Node.js server (`node build/server.js`) and
 > [http://localhost:3001/](http://localhost:3001/) — Browsersync control panel
 > (UI)
 
-Now you can open your web app in a browser, on mobile devices and start hacking.
-Whenever you modify any of the source files inside the `/src` folder, the module
-bundler ([Webpack](http://webpack.github.io/)) will recompile the app on the fly
-and refresh all the connected browsers.
+现在，您可以在浏览器，移动设备上打开您的网络应用程序,无论何时修改 `/src` 文件夹中的任何源文件，模块
+bundler ([Webpack](http://webpack.github.io/))将会重新编译应用程序
+并刷新所有连接的浏览器.
 
 ![browsersync](https://dl.dropboxusercontent.com/u/16006521/react-starter-kit/brwosersync.jpg)
 
-Note that the `yarn start` command launches the app in `development` mode, the
-compiled output files are not optimized and minimized in this case. You can use
-`--release` command line argument to check how your app works in release
-(production) mode:
+请注意 `yarn start` 命令在 'development` 模式下启动应用程序
+编译的输出文件在这种情况下不会被优化和最小化。 您可以使用
+`--release`命令行参数来检查您的应用程序在发行版中的工作方式
+(生产)模式:
 
 ```shell
 $ yarn start -- --release
 ```
 
-_NOTE: double dashes are required_
+_NOTE: 双破折号是必需的
 
-### How to Build, Test, Deploy
+### 如何建立, 测试, 部署
 
-If you need just to build the app (without running a dev server), simply run:
+如果您只需要构建应用程序（无需运行开发服务器）, 只需运行即可:
 
 ```shell
 $ yarn run build
 ```
 
-or, for a production build:
+或者，对于生产版本:
 
 ```shell
 $ yarn run build -- --release
 ```
 
-or, for a production docker build:
+或者，对于生产docker构建:
 
 ```shell
 $ yarn run build -- --release --docker
 ```
 
-_NOTE: double dashes are required_
+_NOTE: 双破折号是必需的
 
-After running this command, the `/build` folder will contain the compiled
-version of the app. For example, you can launch Node.js server normally by
-running `node build/server.js`.
+运行这个命令后, `/build`文件夹将包含编译的
+应用程序的版本. 例如, 你可以正常启动Node.js服务器
+运行`node build/server.js`.
 
-To check the source code for syntax errors and potential issues run:
+检查源代码的语法错误和潜在的问题运行:
 
 ```shell
 $ yarn run lint
 ```
 
-To launch unit tests:
+启动单元测试:
 
 ```shell
 $ yarn run test          # Run unit tests with Mocha
 $ yarn run test:watch    # Launch unit test runner and start watching for changes
 ```
 
-By default, [Mocha](https://mochajs.org/) test runner is looking for test files
-matching the `src/**/*.test.js` pattern. Take a look at
-`src/components/Layout/Layout.test.js` as an example.
+默认情况下, [Mocha](https://mochajs.org/)测试运行器正在查找测试文件
+匹配`src/**/*.test.js`模式. 
+`src/components/Layout/Layout.test.js`为例
 
-To deploy the app, run:
+要部署应用程序，请运行:
 
 ```shell
 $ yarn run deploy
 ```
 
-The deployment script `tools/deploy.js` is configured to push the contents of
-the `/build` folder to a remote server via Git. You can easily deploy your app
-to
+部署脚本 `tools/deploy.js` 被配置为推送内容
+`/build` 文件夹通过Git到远程服务器. 您可以轻松部署您的应用程序
+至
 [Azure Web Apps](https://azure.microsoft.com/en-us/services/app-service/web/),
-or [Heroku](https://www.heroku.com/) this way. Both will execute `yarn install
---production` upon receiving new files from you. Note, you should only deploy
-the contents of the `/build` folder to a remote server.
+或者[Heroku](https://www.heroku.com/)这样. 两者都将执行`yarn install--production`
+请注意,您只应该部署`/build` 文件夹的内容到远程服务器
 
-### How to Update
+### 如何更新
 
-If you need to keep your project up to date with the recent changes made to RSK,
-you can always fetch and merge them from
-[this repo](https://github.com/kriasoft/react-starter-kit) back into your own
-project by running:
+如果您需要通过最近对RSK进行的更改来保持项目的最新状态，
+你总是可以从中获取并合并它们
+[this repo](https://github.com/kriasoft/react-starter-kit) 回到你自己的
+项目运行:
 
 ```shell
 $ git checkout master
