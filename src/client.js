@@ -77,6 +77,10 @@ async function onLocationChange(location, action) {
       return;
     }
 
+    // console.log(router.resolve);
+
+    // console.log(location.pathname);
+
     if (route.redirect) {
       history.replace(route.redirect);
       return;
@@ -151,8 +155,9 @@ async function onLocationChange(location, action) {
 // For more information visit https://github.com/mjackson/history#readme
 history.listen(onLocationChange);
 onLocationChange(currentLocation);
-
 // Enable Hot Module Replacement (HMR)
+console.error('error');
+// console.error(module.hot);
 if (module.hot) {
   module.hot.accept('./router', () => {
     if (appInstance && appInstance.updater.isMounted(appInstance)) {
