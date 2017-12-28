@@ -33,8 +33,8 @@ const minimizeCssOptions = {
 };
 
 //
-// Common configuration chunk to be used for both
-// client-side (client.js) and server-side (server.js) bundles
+// 通用配置块用于两者
+// 客户端（client.js）和服务器端（server.js) 打包
 // -----------------------------------------------------------------------------
 
 const config = {
@@ -48,19 +48,19 @@ const config = {
     chunkFilename: isDebug
       ? '[name].chunk.js'
       : '[name].[chunkhash:8].chunk.js',
-    // Point sourcemap entries to original disk location (format as URL on Windows)
+    // Point sourcemap entries to original disk location (format as URL on Windows). T 将源映射条目指向原始磁盘位置（在Windows上格式为URL）
     devtoolModuleFilenameTemplate: info =>
       path.resolve(info.absoluteResourcePath).replace(/\\/g, '/'),
   },
 
   resolve: {
-    // Allow absolute paths in imports, e.g. import Button from 'components/Button'
+    // 允许导入的绝对路径，例如 从'components/Button'导入按钮
     // Keep in sync with .flowconfig and .eslintrc
     modules: ['node_modules', 'src'],
   },
 
   module: {
-    // Make missing exports an error instead of warning
+    // 使缺少的导出出现错误而不是警告
     strictExportPresence: true,
 
     rules: [
@@ -259,24 +259,35 @@ const config = {
     ],
   },
 
-  // Don't attempt to continue if there are any errors.
+  // 如果有任何错误，请勿尝试继续.
   bail: !isDebug,
 
   cache: isDebug,
 
-  // Specify what bundle information gets displayed
+  // 指定显示哪些束信息
+  // 统计选项可以让您精确地控制显示的包信息。 如果您不想使用quiet或noInfo，这可能是一个很好的中间地带，因为您需要一些捆绑信息，但不是全部。
   // https://webpack.js.org/configuration/stats/
+
+  // stats: 'errors-only',有一些预置可用作快捷方式。 像这样使用它们:
+  /* 预设                默认             描述 
+  *  "errors-only"      none             仅当错误发生时才输出
+  *  "minimal"          none             只有在错误或新编译发生时才会输出
+  *  "none"             false            什么都不输出
+  *  "normal"           true             标准输出
+  *  "verbose"          none             输出一切
+  * 为了更细化的控制，可以准确地指定你想要的信息。 请注意，此对象中的所有选项都是可选的。
+  */
   stats: {
-    cached: isVerbose,
-    cachedAssets: isVerbose,
-    chunks: isVerbose,
-    chunkModules: isVerbose,
+    cached: isVerbose, // 添加关于缓存（未构建）模块的信息
+    cachedAssets: isVerbose, // 显示缓存的资产（将其设置为“false”仅显示发出的文件）
+    chunks: isVerbose, // 添加块信息（将其设置为“false”允许输出较少的冗余）
+    chunkModules: isVerbose, // 将内置的模块信息添加到块信息
     colors: true,
-    hash: isVerbose,
-    modules: isVerbose,
-    reasons: isDebug,
-    timings: true,
-    version: isVerbose,
+    hash: isVerbose, // 添加编译的hash
+    modules: isVerbose, // 添加内置的模块信息
+    reasons: isDebug, // 添加有关模块包含的原因的信息
+    timings: true, // 添加时间信息
+    version: isVerbose, // 添加webpack版本信息
   },
 
   // Choose a developer tool to enhance debugging
@@ -317,6 +328,45 @@ const clientConfig = {
 
     // Move modules that occur in multiple entry chunks to a new entry chunk (the commons chunk).
     // https://webpack.js.org/plugins/commons-chunk-plugin/
+
+    /* name: string, // or
+      names: string[],
+      // 公用模块的模块名称。 可以通过传递现有模块的名称来选择现有的模块。
+      // 如果传递一个字符串数组，这相当于为每个模块名称多次调用该插件。
+      // 如果省略并设置了`options.async`或`options.children`，则使用所有模块，否则使用`options.filename`
+      // 被用作模块名称.
+      // 当使用`options.async`从其他异步块创建公共块时，你必须指定一个入口点
+      // 模块名称在这里，而不是省略`option.name`。
+
+      filename: string,
+      // 公用块的文件名模板。 可以包含与`output.filename`相同的占位符.
+      // 如果省略，则原始文件名不会被修改（通常是`output.filename`或`output.chunkFilename`）。
+      // 如果您也使用`options.async`，则不允许使用此选项，请参阅下面的详细信息。
+
+      minChunks: number|Infinity|function(module, count) -> boolean,
+      // 移入公共块之前需要包含模块的最小块数.
+      // 该数字必须大于或等于2，并且小于或等于块的数量.
+      // 传递“Infinity”只是创建公共块，但不会将模块移入其中.
+      // 通过提供一个`function`你可以添加自定义的逻辑。 （默认为块的数量）
+
+      chunks: string[],
+      // Select the source chunks by chunk names. The chunk must be a child of the commons chunk.
+      // If omitted all entry chunks are selected.
+
+      children: boolean,
+      // If `true` 所有普通人的后代都被选中
+
+      deepChildren: boolean,
+      // If `true` 所有公共块的后代都被选中
+
+      async: boolean|string,
+      // 如果“true”，一个新的异步公共块被创建为`options.name`的子元素和`options.chunks`.
+      // 它与`options.chunks`并行加载.
+      // 而不是使用`option.filename`，可以通过在这里提供所需的字符串而不是`true`来改变输出文件的名字.
+
+      minSize: number,
+      // 创建公共块之前，所有通用模块的最小大小.
+    */
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       minChunks: module => /node_modules/.test(module.resource),
@@ -325,11 +375,11 @@ const clientConfig = {
     ...(isDebug
       ? []
       : [
-          // Decrease script evaluation time
+          // 减少脚本评估时间
           // https://github.com/webpack/webpack/blob/master/examples/scope-hoisting/README.md
           new webpack.optimize.ModuleConcatenationPlugin(),
 
-          // Minimize all JavaScript output of chunks
+          // 最小化块的所有JavaScript输出
           // https://github.com/mishoo/UglifyJS2#compressor-options
           new webpack.optimize.UglifyJsPlugin({
             compress: {

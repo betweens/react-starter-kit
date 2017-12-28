@@ -28,7 +28,8 @@ function runServer() {
     function onStdOut(data) {
       const time = new Date().toTimeString();
       const match = data.toString('utf8').match(RUNNING_REGEXP);
-
+      // console.log(time);
+      // console.log('*********');
       process.stdout.write(time.replace(/.*(\d{2}:\d{2}:\d{2}).*/, '[$1] '));
       process.stdout.write(data);
 
@@ -54,9 +55,7 @@ function runServer() {
       server.once('exit', (code, signal) => {
         if (pending) {
           throw new Error(
-            `Server terminated unexpectedly with code: ${code} signal: ${
-              signal
-            }`,
+            `Server terminated unexpectedly with code: ${code} signal: ${signal}`,
           );
         }
       });

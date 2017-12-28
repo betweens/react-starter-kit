@@ -24,9 +24,10 @@ const isDebug = !process.argv.includes('--release');
 const watchOptions = {
   // Watching may not work with NFS and machines in VirtualBox
   // Uncomment next line if it is your case (use true or interval in milliseconds)
-  // poll: true,
+  // poll: true, 通过传递true来开启轮询，或以毫秒为单位指定轮询间隔： 1000// /每秒检查一次更改
   // Decrease CPU or memory usage in some file systems
-  // ignored: /node_modules/,
+  // ignored: /node_modules/, 对于某些系统来说，监听许多文件系统会导致大量的CPU或内存使用量。 可以排除像node_modules这样的巨大文件夹，也可以使用任何匹配模式 ignored: "files/**/*.js"
+  // aggregateTimeout: 100 // 一旦第一个文件改变，在重建之前添加一个延迟。 这允许webpack将在此期间进行的其他更改汇总到一个重建中。 以毫秒为单位传递一个值：
 };
 
 function createCompilationPromise(name, compiler, config) {
@@ -34,7 +35,7 @@ function createCompilationPromise(name, compiler, config) {
     let timeStart = new Date();
     compiler.plugin('compile', () => {
       timeStart = new Date();
-      console.info(`[${format(timeStart)}] Compiling '${name}'...`);
+      console.info(`[${format(timeStart)}] 正在编译 '${name}'...`);
     });
     compiler.plugin('done', stats => {
       console.info(stats.toString(config.stats));
@@ -47,9 +48,9 @@ function createCompilationPromise(name, compiler, config) {
         reject(new Error('Compilation failed!'));
       } else {
         console.info(
-          `[${format(timeEnd)}] Finished '${name}' compilation after ${
-            time
-          } ms`,
+          `[${format(
+            timeEnd,
+          )}] Finished '${name}' compilation after ${time} ms`,
         );
         resolve(stats);
       }
@@ -60,8 +61,8 @@ function createCompilationPromise(name, compiler, config) {
 let server;
 
 /**
- * Launches a development web server with "live reload" functionality -
- * synchronizing URLs, interactions and code changes across multiple devices.
+ * 推出具有“实时重载”功能的开发Web服务器 -
+ * 同步多个设备上的URL，交互和代码更改。
  */
 async function start() {
   if (server) return server;
@@ -69,7 +70,7 @@ async function start() {
   server.use(errorOverlayMiddleware());
   server.use(express.static(path.resolve(__dirname, '../public')));
 
-  // Configure client-side hot module replacement
+  // 配置客户端热模块更换
   const clientConfig = webpackConfig.find(config => config.name === 'client');
   clientConfig.entry.client = ['./tools/lib/webpackHotDevClient']
     .concat(clientConfig.entry.client)
@@ -91,7 +92,7 @@ async function start() {
     new webpack.NamedModulesPlugin(),
   );
 
-  // Configure server-side hot module replacement
+  // 配置服务器端热模块更换
   const serverConfig = webpackConfig.find(config => config.name === 'server');
   serverConfig.output.hotUpdateMainFilename = 'updates/[hash].hot-update.json';
   serverConfig.output.hotUpdateChunkFilename =
@@ -105,7 +106,7 @@ async function start() {
     new webpack.NamedModulesPlugin(),
   );
 
-  // Configure compilation
+  // 配置编译
   await run(clean);
   const multiCompiler = webpack(webpackConfig);
   const clientCompiler = multiCompiler.compilers.find(
